@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "ExerciseTableViewController.h"
 
 @implementation AppDelegate
 
@@ -14,6 +15,10 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
+    
+    ExerciseTableViewController *exerciseTableViewController = [[ExerciseTableViewController alloc] init];
+    [self.window setRootViewController:exerciseTableViewController];
+    
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;
