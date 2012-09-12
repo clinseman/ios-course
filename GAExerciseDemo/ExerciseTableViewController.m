@@ -7,6 +7,8 @@
 //
 
 #import "ExerciseTableViewController.h"
+#import "ExerciseRepository.h"
+#import "Exercise.h"
 
 @interface ExerciseTableViewController ()
 
@@ -19,6 +21,7 @@
     self = [super initWithStyle:style];
     if (self) {
         // Custom initialization
+        [[ExerciseRepository sharedRepository] getRandomExercises:30];
     }
     return self;
 }
@@ -26,7 +29,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    
     self.navigationController.toolbarHidden = NO;
     
     // Uncomment the following line to preserve selection between presentations.
@@ -52,16 +55,14 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return [[ExerciseRepository sharedRepository].data count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -69,10 +70,21 @@
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    }
+    
     // Configure the cell...
+    Exercise *exercise = [[ExerciseRepository sharedRepository].data objectAtIndex:indexPath.row];
+    cell.textLabel.text = exercise.name;
     
     return cell;
 }
+
+//- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+//{
+//    return [NSString stringWithFormat:@"Section: %d", section];
+//}
 
 /*
 // Override to support conditional editing of the table view.

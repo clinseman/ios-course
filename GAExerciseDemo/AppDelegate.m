@@ -16,7 +16,7 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     
-    ExerciseTableViewController *exerciseTableViewController = [[ExerciseTableViewController alloc] init];
+    ExerciseTableViewController *exerciseTableViewController = [[ExerciseTableViewController alloc] initWithStyle:UITableViewStylePlain];
     [self.window setRootViewController:exerciseTableViewController];
     
     self.window.backgroundColor = [UIColor whiteColor];
