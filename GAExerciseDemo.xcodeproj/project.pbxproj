@@ -13,6 +13,8 @@
 		E24EE5091601245600D1F11B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E24EE5071601245600D1F11B /* InfoPlist.strings */; };
 		E24EE50B1601245600D1F11B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E24EE50A1601245600D1F11B /* main.m */; };
 		E24EE50F1601245600D1F11B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E24EE50E1601245600D1F11B /* AppDelegate.m */; };
+		E24EE5181601252E00D1F11B /* ExerciseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E24EE5161601252E00D1F11B /* ExerciseTableViewController.m */; };
+		E24EE5191601252E00D1F11B /* ExerciseTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E24EE5171601252E00D1F11B /* ExerciseTableViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,9 @@
 		E24EE50C1601245600D1F11B /* GAExerciseDemo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GAExerciseDemo-Prefix.pch"; sourceTree = "<group>"; };
 		E24EE50D1601245600D1F11B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E24EE50E1601245600D1F11B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		E24EE5151601252E00D1F11B /* ExerciseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExerciseTableViewController.h; sourceTree = "<group>"; };
+		E24EE5161601252E00D1F11B /* ExerciseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExerciseTableViewController.m; sourceTree = "<group>"; };
+		E24EE5171601252E00D1F11B /* ExerciseTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExerciseTableViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +80,9 @@
 				E24EE50D1601245600D1F11B /* AppDelegate.h */,
 				E24EE50E1601245600D1F11B /* AppDelegate.m */,
 				E24EE5051601245600D1F11B /* Supporting Files */,
+				E24EE5151601252E00D1F11B /* ExerciseTableViewController.h */,
+				E24EE5161601252E00D1F11B /* ExerciseTableViewController.m */,
+				E24EE5171601252E00D1F11B /* ExerciseTableViewController.xib */,
 			);
 			path = GAExerciseDemo;
 			sourceTree = "<group>";
@@ -142,6 +150,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E24EE5091601245600D1F11B /* InfoPlist.strings in Resources */,
+				E24EE5191601252E00D1F11B /* ExerciseTableViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -154,6 +163,7 @@
 			files = (
 				E24EE50B1601245600D1F11B /* main.m in Sources */,
 				E24EE50F1601245600D1F11B /* AppDelegate.m in Sources */,
+				E24EE5181601252E00D1F11B /* ExerciseTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
