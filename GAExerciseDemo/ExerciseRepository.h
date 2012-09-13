@@ -16,4 +16,6 @@
 
 - (NSArray *)getRandomExercises:(NSUInteger)amount;
 
+- (void)removeExerciseAtIndex:(NSUInteger)index;
+
 @end

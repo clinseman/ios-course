@@ -30,6 +30,14 @@
     
     self.data = [NSArray arrayWithArray:result];
     return self.data;
+    
+}
+
+- (void)removeExerciseAtIndex:(NSUInteger)index
+{
+    NSMutableArray *result = [self.data mutableCopy];
+    [result removeObjectAtIndex:index];
+    self.data = [NSArray arrayWithArray:result];
 }
 
 @end
