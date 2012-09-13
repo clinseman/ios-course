@@ -10,10 +10,14 @@
 
 @class Exercise;
 
-@interface ExerciseViewController : UIViewController
+@interface ExerciseViewController : UIViewController <UITextFieldDelegate>
 
 @property (nonatomic, strong) Exercise *exercise;
 @property (weak, nonatomic) IBOutlet UILabel *exerciseNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *difficultyLevelLabel;
+@property (weak, nonatomic) IBOutlet UITextField *exerciseNameTextField;
+@property (weak, nonatomic) IBOutlet UISlider *difficultyLevelSlider;
+
+- (IBAction)difficultyChanged:(id)sender;
 
 @end
