@@ -17,7 +17,10 @@
     // Override point for customization after application launch.
     
     ExerciseTableViewController *exerciseTableViewController = [[ExerciseTableViewController alloc] initWithStyle:UITableViewStylePlain];
-    [self.window setRootViewController:exerciseTableViewController];
+    
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:exerciseTableViewController];
+    
+    [self.window setRootViewController:navController];
     
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];

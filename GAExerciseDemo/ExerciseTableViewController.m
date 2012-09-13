@@ -9,6 +9,7 @@
 #import "ExerciseTableViewController.h"
 #import "ExerciseRepository.h"
 #import "Exercise.h"
+#import "ExerciseViewController.h"
 
 @interface ExerciseTableViewController ()
 
@@ -22,6 +23,11 @@
     if (self) {
         // Custom initialization
         [[ExerciseRepository sharedRepository] getRandomExercises:30];
+        self.title = @"Exercises";
+
+        UIBarButtonItem *newBackButton = [[UIBarButtonItem alloc] initWithTitle: @"Back" style: UIBarButtonItemStyleBordered target: nil action: nil];
+        [[self navigationItem] setBackBarButtonItem: newBackButton];
+        
     }
     return self;
 }
@@ -29,8 +35,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    self.navigationController.toolbarHidden = NO;
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -77,7 +81,7 @@
     // Configure the cell...
     Exercise *exercise = [[ExerciseRepository sharedRepository].data objectAtIndex:indexPath.row];
     cell.textLabel.text = exercise.name;
-    
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     return cell;
 }
 
@@ -130,12 +134,13 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+    
+    ExerciseViewController *exerciseViewController = [[ExerciseViewController alloc] init];
+    exerciseViewController.exercise = [[ExerciseRepository sharedRepository].data objectAtIndex:indexPath.row];
+    
+    // Pass the selected object to the new view controller.
+    [self.navigationController pushViewController:exerciseViewController animated:YES];
+    
 }
 
 @end

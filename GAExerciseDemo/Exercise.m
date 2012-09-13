@@ -47,6 +47,8 @@
     
     NSString *tempName = [NSString stringWithFormat:@"%@ %@ %@", [adjectives randomElement], [bodyPart randomElement], [name randomElement]];
     
+    tempName = [tempName stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    
     Exercise *e1 = [[Exercise alloc] initWithName:tempName
                                             steps:steps
                                   difficultyLevel:(arc4random() % 10) + 1];
