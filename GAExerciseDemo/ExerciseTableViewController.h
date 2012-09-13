@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ExerciseTableViewController : UITableViewController
+@interface ExerciseTableViewController : UITableViewController <UISearchDisplayDelegate>
 
 @end

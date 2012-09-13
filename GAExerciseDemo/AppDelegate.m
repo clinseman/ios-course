@@ -16,7 +16,7 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     
-    ExerciseTableViewController *exerciseTableViewController = [[ExerciseTableViewController alloc] initWithStyle:UITableViewStylePlain];
+    ExerciseTableViewController *exerciseTableViewController = [[ExerciseTableViewController alloc] initWithNibName:@"ExerciseTableViewController" bundle:nil];
     
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:exerciseTableViewController];
     

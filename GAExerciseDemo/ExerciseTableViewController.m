@@ -12,29 +12,35 @@
 #import "ExerciseViewController.h"
 
 @interface ExerciseTableViewController ()
+@property (nonatomic, strong) NSArray *searchResults;
+
+- (void)filterContentForSearchText:(NSString *)searchText;
 
 @end
 
 @implementation ExerciseTableViewController
 
-- (id)initWithStyle:(UITableViewStyle)style
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-        [[ExerciseRepository sharedRepository] getRandomExercises:30];
-        self.title = @"Exercises";
-
-        UIBarButtonItem *newBackButton = [[UIBarButtonItem alloc] initWithTitle: @"Back" style: UIBarButtonItemStyleBordered target: nil action: nil];
-        [[self navigationItem] setBackBarButtonItem: newBackButton];
-        
+    {
+        self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+        if (self) {
+            // Custom initialization
+            [[ExerciseRepository sharedRepository] getRandomExercises:30];
+            self.title = @"Exercises";
+            
+            UIBarButtonItem *newBackButton = [[UIBarButtonItem alloc] initWithTitle: @"Back" style: UIBarButtonItemStyleBordered target: nil action: nil];
+            [[self navigationItem] setBackBarButtonItem: newBackButton];
+            
+        }
+        return self;
     }
-    return self;
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self.tableView setContentOffset:CGPointMake(0, self.searchDisplayController.searchBar.frame.size.height) animated:NO];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -55,6 +61,14 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+- (void)filterContentForSearchText:(NSString *)searchText
+{
+    self.searchResults = [[ExerciseRepository sharedRepository].data copy];
+    
+    NSPredicate *searchPredicate = [NSPredicate predicateWithFormat:@"self.name contains[c] %@", searchText];
+    self.searchResults = [self.searchResults filteredArrayUsingPredicate:searchPredicate];
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -66,6 +80,10 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        return [self.searchResults count];
+    }
+    
     return [[ExerciseRepository sharedRepository].data count];
 }
 
@@ -79,7 +97,14 @@
     }
     
     // Configure the cell...
-    Exercise *exercise = [[ExerciseRepository sharedRepository].data objectAtIndex:indexPath.row];
+    Exercise *exercise;
+    
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        exercise = [self.searchResults objectAtIndex:indexPath.row];
+    } else {
+        exercise = [[ExerciseRepository sharedRepository].data objectAtIndex:indexPath.row];
+    }
+    
     cell.textLabel.text = exercise.name;
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     return cell;
@@ -141,6 +166,13 @@
     // Pass the selected object to the new view controller.
     [self.navigationController pushViewController:exerciseViewController animated:YES];
     
+}
+
+#pragma mark - UISearchDisplayController
+- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
+{
+    [self filterContentForSearchText:searchString];
+    return YES;
 }
 
 @end
