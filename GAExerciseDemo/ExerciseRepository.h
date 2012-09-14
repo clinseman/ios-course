@@ -18,4 +18,6 @@
 
 - (void)removeExerciseAtIndex:(NSUInteger)index;
 
+- (void)saveData;
+
 @end

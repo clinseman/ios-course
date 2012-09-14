@@ -56,6 +56,20 @@
     return e1;
 }
 
+- (void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [aCoder encodeObject:self.name forKey:@"name"];
+    [aCoder encodeInt:self.difficultyLevel forKey:@"difficultyLevel"];
+}
+
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    NSString *name = [aDecoder decodeObjectForKey:@"name"];
+    int difficultyLevel = [aDecoder decodeIntForKey:@"difficultyLevel"];
+    
+    return [self initWithName:name steps:nil difficultyLevel:difficultyLevel];
+}
+
 - (id)initWithName:(NSString *)name steps:(NSArray *)steps difficultyLevel:(int)difficultyLevel
 {
     if (self = [super init]) {

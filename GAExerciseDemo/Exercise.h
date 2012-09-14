@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Exercise : NSObject
+@interface Exercise : NSObject <NSCoding>
 
 @property (nonatomic, copy) NSString *name;
 @property (nonatomic, strong) NSArray *steps;
