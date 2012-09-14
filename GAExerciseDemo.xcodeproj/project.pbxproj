@@ -10,6 +10,10 @@
 		E22E77CE16037F6B00FD245B /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = E22E77CC16037F6B00FD245B /* settings.png */; };
 		E22E77CF16037F6B00FD245B /* settings@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E22E77CD16037F6B00FD245B /* settings@2x.png */; };
 		E22E77D21603804C00FD245B /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E22E77D11603804C00FD245B /* Settings.bundle */; };
+		E22E781B1603DB8200FD245B /* exercise_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E22E781A1603DB8200FD245B /* exercise_icon@2x.png */; };
+		E22E781D1603DCCA00FD245B /* exercise_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = E22E781C1603DCCA00FD245B /* exercise_icon.png */; };
+		E22E78371603E26C00FD245B /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = E22E78351603E26C00FD245B /* Default.png */; };
+		E22E78381603E26C00FD245B /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E22E78361603E26C00FD245B /* Default@2x.png */; };
 		E24EE4FF1601245600D1F11B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E24EE4FE1601245600D1F11B /* UIKit.framework */; };
 		E24EE5011601245600D1F11B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E24EE5001601245600D1F11B /* Foundation.framework */; };
 		E24EE5031601245600D1F11B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E24EE5021601245600D1F11B /* CoreGraphics.framework */; };
@@ -23,8 +27,6 @@
 		E24EE52316014B0600D1F11B /* ExerciseRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = E24EE52216014B0600D1F11B /* ExerciseRepository.m */; };
 		E24EE52C160153EE00D1F11B /* ExerciseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E24EE52A160153EE00D1F11B /* ExerciseViewController.m */; };
 		E24EE52D160153EE00D1F11B /* ExerciseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E24EE52B160153EE00D1F11B /* ExerciseViewController.xib */; };
-		E2834BF516033C5100667148 /* Question.png in Resources */ = {isa = PBXBuildFile; fileRef = E2834BF316033C5100667148 /* Question.png */; };
-		E2834BF616033C5100667148 /* Question@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E2834BF416033C5100667148 /* Question@2x.png */; };
 		E2834BFA160342DC00667148 /* HelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2834BF8160342DC00667148 /* HelpViewController.m */; };
 		E2834BFB160342DC00667148 /* HelpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2834BF9160342DC00667148 /* HelpViewController.xib */; };
 		E2834C391603564E00667148 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2834C381603564D00667148 /* MessageUI.framework */; };
@@ -36,6 +38,10 @@
 		E22E77CC16037F6B00FD245B /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
 		E22E77CD16037F6B00FD245B /* settings@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings@2x.png"; sourceTree = "<group>"; };
 		E22E77D11603804C00FD245B /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		E22E781A1603DB8200FD245B /* exercise_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "exercise_icon@2x.png"; sourceTree = "<group>"; };
+		E22E781C1603DCCA00FD245B /* exercise_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = exercise_icon.png; sourceTree = "<group>"; };
+		E22E78351603E26C00FD245B /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		E22E78361603E26C00FD245B /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		E24EE4FA1601245600D1F11B /* GAExerciseDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GAExerciseDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E24EE4FE1601245600D1F11B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		E24EE5001601245600D1F11B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -58,8 +64,6 @@
 		E24EE529160153EE00D1F11B /* ExerciseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExerciseViewController.h; sourceTree = "<group>"; };
 		E24EE52A160153EE00D1F11B /* ExerciseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExerciseViewController.m; sourceTree = "<group>"; };
 		E24EE52B160153EE00D1F11B /* ExerciseViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExerciseViewController.xib; sourceTree = "<group>"; };
-		E2834BF316033C5100667148 /* Question.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Question.png; sourceTree = "<group>"; };
-		E2834BF416033C5100667148 /* Question@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Question@2x.png"; sourceTree = "<group>"; };
 		E2834BF7160342DC00667148 /* HelpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelpViewController.h; sourceTree = "<group>"; };
 		E2834BF8160342DC00667148 /* HelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelpViewController.m; sourceTree = "<group>"; };
 		E2834BF9160342DC00667148 /* HelpViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HelpViewController.xib; sourceTree = "<group>"; };
@@ -156,10 +160,12 @@
 		E2834BF116033C3F00667148 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				E22E78351603E26C00FD245B /* Default.png */,
+				E22E78361603E26C00FD245B /* Default@2x.png */,
+				E22E781C1603DCCA00FD245B /* exercise_icon.png */,
+				E22E781A1603DB8200FD245B /* exercise_icon@2x.png */,
 				E22E77CC16037F6B00FD245B /* settings.png */,
 				E22E77CD16037F6B00FD245B /* settings@2x.png */,
-				E2834BF316033C5100667148 /* Question.png */,
-				E2834BF416033C5100667148 /* Question@2x.png */,
 			);
 			name = images;
 			sourceTree = "<group>";
@@ -218,12 +224,14 @@
 				E24EE5091601245600D1F11B /* InfoPlist.strings in Resources */,
 				E24EE5191601252E00D1F11B /* ExerciseTableViewController.xib in Resources */,
 				E24EE52D160153EE00D1F11B /* ExerciseViewController.xib in Resources */,
-				E2834BF516033C5100667148 /* Question.png in Resources */,
-				E2834BF616033C5100667148 /* Question@2x.png in Resources */,
 				E2834BFB160342DC00667148 /* HelpViewController.xib in Resources */,
 				E22E77CE16037F6B00FD245B /* settings.png in Resources */,
 				E22E77CF16037F6B00FD245B /* settings@2x.png in Resources */,
 				E22E77D21603804C00FD245B /* Settings.bundle in Resources */,
+				E22E781B1603DB8200FD245B /* exercise_icon@2x.png in Resources */,
+				E22E781D1603DCCA00FD245B /* exercise_icon.png in Resources */,
+				E22E78371603E26C00FD245B /* Default.png in Resources */,
+				E22E78381603E26C00FD245B /* Default@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
