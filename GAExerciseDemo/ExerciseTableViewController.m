@@ -10,6 +10,7 @@
 #import "ExerciseRepository.h"
 #import "Exercise.h"
 #import "ExerciseViewController.h"
+#import "HelpViewController.h"
 
 @interface ExerciseTableViewController ()
 @property (nonatomic, strong) NSArray *searchResults;
@@ -47,6 +48,12 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Question"]
+                                                                             style:UIBarButtonItemStyleBordered
+                                                                            target:self
+                                                                            action:@selector(actionHelp:)];
+
 }
 
 - (void)viewDidUnload
@@ -74,6 +81,13 @@
     
     NSPredicate *searchPredicate = [NSPredicate predicateWithFormat:@"self.name contains[c] %@", searchText];
     self.searchResults = [self.searchResults filteredArrayUsingPredicate:searchPredicate];
+}
+
+- (void)actionHelp:(id)sender
+{
+    HelpViewController *helpViewController = [[HelpViewController alloc] initWithNibName:@"HelpViewController" bundle:nil];
+    helpViewController.delegate = self;
+    [self.navigationController presentModalViewController:helpViewController animated:YES];
 }
 
 #pragma mark - Table view data source
@@ -189,6 +203,12 @@
 {
     [self filterContentForSearchText:searchString];
     return YES;
+}
+
+#pragma mark - HelpViewController Delegate
+-(void)helpViewControllerDidFinish:(HelpViewController *)controller
+{
+    [self.navigationController dismissModalViewControllerAnimated:YES];
 }
 
 @end

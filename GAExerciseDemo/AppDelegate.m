@@ -21,7 +21,7 @@
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:exerciseTableViewController];
     
     [self.window setRootViewController:navController];
-    
+        
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;

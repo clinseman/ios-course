@@ -20,6 +20,10 @@
 		E24EE52316014B0600D1F11B /* ExerciseRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = E24EE52216014B0600D1F11B /* ExerciseRepository.m */; };
 		E24EE52C160153EE00D1F11B /* ExerciseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E24EE52A160153EE00D1F11B /* ExerciseViewController.m */; };
 		E24EE52D160153EE00D1F11B /* ExerciseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E24EE52B160153EE00D1F11B /* ExerciseViewController.xib */; };
+		E2834BF516033C5100667148 /* Question.png in Resources */ = {isa = PBXBuildFile; fileRef = E2834BF316033C5100667148 /* Question.png */; };
+		E2834BF616033C5100667148 /* Question@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E2834BF416033C5100667148 /* Question@2x.png */; };
+		E2834BFA160342DC00667148 /* HelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2834BF8160342DC00667148 /* HelpViewController.m */; };
+		E2834BFB160342DC00667148 /* HelpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2834BF9160342DC00667148 /* HelpViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +49,11 @@
 		E24EE529160153EE00D1F11B /* ExerciseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExerciseViewController.h; sourceTree = "<group>"; };
 		E24EE52A160153EE00D1F11B /* ExerciseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExerciseViewController.m; sourceTree = "<group>"; };
 		E24EE52B160153EE00D1F11B /* ExerciseViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExerciseViewController.xib; sourceTree = "<group>"; };
+		E2834BF316033C5100667148 /* Question.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Question.png; sourceTree = "<group>"; };
+		E2834BF416033C5100667148 /* Question@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Question@2x.png"; sourceTree = "<group>"; };
+		E2834BF7160342DC00667148 /* HelpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelpViewController.h; sourceTree = "<group>"; };
+		E2834BF8160342DC00667148 /* HelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelpViewController.m; sourceTree = "<group>"; };
+		E2834BF9160342DC00667148 /* HelpViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HelpViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,7 +104,6 @@
 				E24EE50E1601245600D1F11B /* AppDelegate.m */,
 				E24EE51A1601332600D1F11B /* Exercise.h */,
 				E24EE51B1601332600D1F11B /* Exercise.m */,
-				E24EE5051601245600D1F11B /* Supporting Files */,
 				E24EE5151601252E00D1F11B /* ExerciseTableViewController.h */,
 				E24EE5161601252E00D1F11B /* ExerciseTableViewController.m */,
 				E24EE5171601252E00D1F11B /* ExerciseTableViewController.xib */,
@@ -106,6 +114,11 @@
 				E24EE529160153EE00D1F11B /* ExerciseViewController.h */,
 				E24EE52A160153EE00D1F11B /* ExerciseViewController.m */,
 				E24EE52B160153EE00D1F11B /* ExerciseViewController.xib */,
+				E2834BF7160342DC00667148 /* HelpViewController.h */,
+				E2834BF8160342DC00667148 /* HelpViewController.m */,
+				E2834BF9160342DC00667148 /* HelpViewController.xib */,
+				E24EE5051601245600D1F11B /* Supporting Files */,
+				E2834BF116033C3F00667148 /* images */,
 			);
 			path = GAExerciseDemo;
 			sourceTree = "<group>";
@@ -119,6 +132,15 @@
 				E24EE50C1601245600D1F11B /* GAExerciseDemo-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E2834BF116033C3F00667148 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				E2834BF316033C5100667148 /* Question.png */,
+				E2834BF416033C5100667148 /* Question@2x.png */,
+			);
+			name = images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -175,6 +197,9 @@
 				E24EE5091601245600D1F11B /* InfoPlist.strings in Resources */,
 				E24EE5191601252E00D1F11B /* ExerciseTableViewController.xib in Resources */,
 				E24EE52D160153EE00D1F11B /* ExerciseViewController.xib in Resources */,
+				E2834BF516033C5100667148 /* Question.png in Resources */,
+				E2834BF616033C5100667148 /* Question@2x.png in Resources */,
+				E2834BFB160342DC00667148 /* HelpViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -192,6 +217,7 @@
 				E24EE51F1601477F00D1F11B /* NSArray+Helpers.m in Sources */,
 				E24EE52316014B0600D1F11B /* ExerciseRepository.m in Sources */,
 				E24EE52C160153EE00D1F11B /* ExerciseViewController.m in Sources */,
+				E2834BFA160342DC00667148 /* HelpViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,6 +325,7 @@
 				E24EE5141601245600D1F11B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HelpViewController.h"
 
-@interface ExerciseTableViewController : UITableViewController <UISearchDisplayDelegate>
+@interface ExerciseTableViewController : UITableViewController <UISearchDisplayDelegate, HelpViewControllerDellegate>
 
 @end
