@@ -16,6 +16,7 @@
 
 @synthesize delegate = _delegate;
 @synthesize versionLabel = _versionLabel;
+@synthesize nameLabel = _nameLabel;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -31,6 +32,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
+    NSString *name = [[NSUserDefaults standardUserDefaults] valueForKey:@"nameField"];
+    self.nameLabel.text = name;
+    
     self.versionLabel.text = [NSString stringWithFormat:@"Version: %@", [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"]];
     
 }
@@ -38,6 +42,7 @@
 - (void)viewDidUnload
 {
     [self setVersionLabel:nil];
+    [self setNameLabel:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;

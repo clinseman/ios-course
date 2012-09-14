@@ -14,6 +14,7 @@
 
 @property (nonatomic, weak) id<HelpViewControllerDellegate> delegate;
 @property (weak, nonatomic) IBOutlet UILabel *versionLabel;
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 
 - (IBAction)actionDone:(id)sender;
 
