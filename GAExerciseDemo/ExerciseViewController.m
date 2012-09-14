@@ -8,14 +8,16 @@
 
 #import "ExerciseViewController.h"
 #import "Exercise.h"
-
+#import <Twitter/Twitter.h>
 
 
 #define kShareViaEmailButton 0
+#define kShareViaTwitterButton 1
 
 @interface ExerciseViewController ()
 - (void)updateDisplay;
 - (void)shareViaEmail;
+- (void)shareViaTwitter;
 @end
 
 @implementation ExerciseViewController
@@ -146,13 +148,56 @@
     }
 }
 
+- (void)shareViaTwitter
+{
+    if ([TWTweetComposeViewController canSendTweet]) {
+        
+        // Set up the built-in twitter composition view controller.
+        TWTweetComposeViewController *tweetViewController = [[TWTweetComposeViewController alloc] init];
+        
+        // Set the initial tweet text. See the framework for additional properties that can be set.
+        [tweetViewController setInitialText:self.exercise.name];
+        
+        // Create the completion handler block.
+        [tweetViewController setCompletionHandler:^(TWTweetComposeViewControllerResult result) {
+
+            switch (result) {
+                case TWTweetComposeViewControllerResultCancelled:
+                    // The cancel button was tapped.
+                    NSLog(@"Tweet cancelled.");
+                    break;
+                case TWTweetComposeViewControllerResultDone:
+                    // The tweet was sent.
+                    NSLog(@"Tweet sent.");
+                    break;
+                default:
+                    break;
+            }
+            
+            // Dismiss the tweet composition view controller.
+            [self dismissModalViewControllerAnimated:YES];
+        }];
+        
+        // Present the tweet composition view controller modally.
+        [self presentModalViewController:tweetViewController animated:YES];
+        
+    } else {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Twitter"
+                                                        message:@"Can't send a tweet, check your settings."
+                                                       delegate:self
+                                              cancelButtonTitle:@"Ok"
+                                              otherButtonTitles:nil];
+        [alert show];
+    }
+}
+
 - (void)actionShare:(id)sender
 {
     UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Share Exercise"
                                                              delegate:self
                                                     cancelButtonTitle:@"Cancel"
                                                destructiveButtonTitle:nil
-                                                    otherButtonTitles:@"Email", nil];
+                                                    otherButtonTitles:@"Email", @"Twitter", nil];
     
     [actionSheet showFromToolbar:self.navigationController.toolbar];
 }
@@ -171,6 +216,10 @@
     switch (buttonIndex) {
         case kShareViaEmailButton:
             [self shareViaEmail];
+            break;
+
+        case kShareViaTwitterButton:
+            [self shareViaTwitter];
             break;
             
         default:
