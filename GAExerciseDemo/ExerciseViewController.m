@@ -9,8 +9,13 @@
 #import "ExerciseViewController.h"
 #import "Exercise.h"
 
+
+
+#define kShareViaEmailButton 0
+
 @interface ExerciseViewController ()
 - (void)updateDisplay;
+- (void)shareViaEmail;
 @end
 
 @implementation ExerciseViewController
@@ -39,6 +44,13 @@
     NSLog(@"view loaded with exercise: %@", self.exercise);
     [self updateDisplay];
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
+
+    UIBarButtonItem *shareButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(actionShare:)];
+    UIBarButtonItem *flexibleSpaceButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    NSArray *toolBarItems = @[flexibleSpaceButtonItem, shareButtonItem];
+
+    self.toolbarItems = toolBarItems;
+
 }
 
 - (void)viewDidUnload
@@ -50,6 +62,18 @@
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [self.navigationController setToolbarHidden:NO animated:YES];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [self.navigationController setToolbarHidden:YES animated:YES];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -95,6 +119,63 @@
     }
     
     self.difficultyLevelLabel.text = difficulty;
+}
+
+- (void)shareViaEmail
+{
+    if ([MFMailComposeViewController canSendMail]) {
+        MFMailComposeViewController *mailViewController = [[MFMailComposeViewController alloc] init];
+        mailViewController.mailComposeDelegate = self;
+        [mailViewController setSubject:@"Great Exercise"];
+        
+        NSMutableString *text = [NSMutableString string];
+        
+        [text appendString:@"<p>Thought you'd like this:</p>"];
+        [text appendFormat:@"<p>Exercise: %@</p>", self.exercise.name];
+        
+        [mailViewController setMessageBody:text isHTML:YES];
+        
+        [self presentModalViewController:mailViewController animated:YES];
+    } else {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Email"
+                                                        message:@"Can't send an email, check your settings."
+                                                       delegate:self
+                                              cancelButtonTitle:@"Ok"
+                                              otherButtonTitles:nil];
+        [alert show];
+    }
+}
+
+- (void)actionShare:(id)sender
+{
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Share Exercise"
+                                                             delegate:self
+                                                    cancelButtonTitle:@"Cancel"
+                                               destructiveButtonTitle:nil
+                                                    otherButtonTitles:@"Email", nil];
+    
+    [actionSheet showFromToolbar:self.navigationController.toolbar];
+}
+
+#pragma mark - MFMailComposeViewController Delegate
+- (void)mailComposeController:(MFMailComposeViewController*)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error
+{
+    NSLog(@"result: %d", result);
+    [self.navigationController dismissModalViewControllerAnimated:YES];
+}
+
+#pragma mark - UIActionSheet Delegate
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    NSLog(@"Clicked: %d", buttonIndex);
+    switch (buttonIndex) {
+        case kShareViaEmailButton:
+            [self shareViaEmail];
+            break;
+            
+        default:
+            break;
+    }
 }
 
 #pragma mark - UITextField Delegate methods

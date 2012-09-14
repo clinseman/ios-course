@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MessageUI/MessageUI.h>
 
 @class Exercise;
 
-@interface ExerciseViewController : UIViewController <UITextFieldDelegate>
+@interface ExerciseViewController : UIViewController <UITextFieldDelegate, UIActionSheetDelegate, MFMailComposeViewControllerDelegate>
 
 @property (nonatomic, strong) Exercise *exercise;
 @property (weak, nonatomic) IBOutlet UILabel *exerciseNameLabel;
