@@ -10,7 +10,7 @@
 #import "Exercise.h"
 
 @interface ExerciseViewController ()
-
+- (void)updateDisplay;
 @end
 
 @implementation ExerciseViewController
@@ -37,19 +37,7 @@
     // Do any additional setup after loading the view from its nib.
     
     NSLog(@"view loaded with exercise: %@", self.exercise);
-    self.title = self.exercise.name;
-    self.exerciseNameLabel.text = self.exercise.name;
-    
-    NSString *difficulty = @"Easy";
-    
-    if (self.exercise.difficultyLevel > 8) {
-        difficulty = @"Hard";
-    } else if (self.exercise.difficultyLevel > 4) {
-        difficulty = @"Average";
-    }
-    
-    self.difficultyLevelLabel.text = difficulty;
-    
+    [self updateDisplay];
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
@@ -87,8 +75,26 @@
         self.exercise.name = self.exerciseNameTextField.text;
         int result = roundf(self.difficultyLevelSlider.value);
         self.exercise.difficultyLevel = result;
+        
+        [self updateDisplay];
     }
     
+}
+
+- (void)updateDisplay
+{
+    self.title = self.exercise.name;
+    self.exerciseNameLabel.text = self.exercise.name;
+    
+    NSString *difficulty = @"Easy";
+    
+    if (self.exercise.difficultyLevel > 8) {
+        difficulty = @"Hard";
+    } else if (self.exercise.difficultyLevel > 4) {
+        difficulty = @"Average";
+    }
+    
+    self.difficultyLevelLabel.text = difficulty;
 }
 
 #pragma mark - UITextField Delegate methods

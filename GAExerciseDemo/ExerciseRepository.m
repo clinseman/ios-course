@@ -26,8 +26,6 @@
     NSMutableArray *result = [[NSMutableArray alloc] initWithCapacity:amount];
     for (int i = 0; i < amount; i++) {
         Exercise *anExercise = [Exercise randomExercise];
-        [anExercise addObserver:self forKeyPath:@"name" options:NSKeyValueObservingOptionNew context:nil];
-        [anExercise addObserver:self forKeyPath:@"difficultyLevel" options:NSKeyValueObservingOptionNew context:nil];        
         [result addObject:anExercise];
     }
     
@@ -39,15 +37,8 @@
 - (void)removeExerciseAtIndex:(NSUInteger)index
 {
     NSMutableArray *result = [self.data mutableCopy];
-    Exercise *anExercise = [result objectAtIndex:index];
-    [anExercise removeObserver:self forKeyPath:@"name" context:nil];
     [result removeObjectAtIndex:index];
     self.data = [NSArray arrayWithArray:result];
-}
-
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
-{
-    // START WITH EDITING
 }
 
 

@@ -56,6 +56,13 @@
     // e.g. self.myOutlet = nil;
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.tableView reloadData];
+    [self.searchDisplayController.searchResultsTableView reloadData];
+}
+
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
@@ -161,7 +168,16 @@
     // Navigation logic may go here. Create and push another view controller.
     
     ExerciseViewController *exerciseViewController = [[ExerciseViewController alloc] init];
-    exerciseViewController.exercise = [[ExerciseRepository sharedRepository].data objectAtIndex:indexPath.row];
+    
+    Exercise *exercise;
+    
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        exercise = [self.searchResults objectAtIndex:indexPath.row];
+    } else {
+        exercise = [[ExerciseRepository sharedRepository].data objectAtIndex:indexPath.row];
+    }
+    
+    exerciseViewController.exercise = exercise;
     
     // Pass the selected object to the new view controller.
     [self.navigationController pushViewController:exerciseViewController animated:YES];
