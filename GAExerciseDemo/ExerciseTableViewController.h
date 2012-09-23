@@ -9,6 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "HelpViewController.h"
 
-@interface ExerciseTableViewController : UITableViewController <UISearchDisplayDelegate, HelpViewControllerDellegate>
+// We are subclassing the UITableViewController and implementing two protocols
+// UISearchDisplayDelegate to display the search bar on top of the table
+// HelpViewControllerDelegate to dissmis the help view when the 'Done' button is pressed
+// ⌘ + Click on the HelpViewControllerDelegate protocol to see where and how its defined
+@interface ExerciseTableViewController : UITableViewController <UISearchDisplayDelegate, HelpViewControllerDelegate>
 
 @end

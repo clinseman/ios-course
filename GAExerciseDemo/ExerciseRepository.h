@@ -10,14 +10,19 @@
 
 @interface ExerciseRepository : NSObject
 
+// a property that represents our data
 @property (nonatomic, strong) NSArray *data;
 
+// this will always return the same repository using the singleton pattern
 + (ExerciseRepository *)sharedRepository;
 
+// return 'amount' number of random exercises
 - (NSArray *)getRandomExercises:(NSUInteger)amount;
 
+// delete an exercise
 - (void)removeExerciseAtIndex:(NSUInteger)index;
 
+// persist our data
 - (void)saveData;
 
 @end

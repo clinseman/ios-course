@@ -10,6 +10,7 @@
 
 @interface NSArray (Helpers)
 
+// return a random element from the array
 - (id)randomElement;
 
 @end

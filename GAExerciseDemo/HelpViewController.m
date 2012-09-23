@@ -14,10 +14,12 @@
 
 @implementation HelpViewController
 
+// ask the compiler to create our getters/setters
 @synthesize delegate = _delegate;
 @synthesize versionLabel = _versionLabel;
 @synthesize nameLabel = _nameLabel;
 
+// we don't have any custom initialization
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -30,30 +32,27 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
     
+    // look in the NSUserDefaults to see if the user has set a name value in the settings app
     NSString *name = [[NSUserDefaults standardUserDefaults] valueForKey:@"nameField"];
     self.nameLabel.text = name;
     
+    // read the version from the info.plist so we can display it
     self.versionLabel.text = [NSString stringWithFormat:@"Version: %@", [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"]];
     
 }
 
 - (void)viewDidUnload
 {
+    // nill out our properties
     [self setVersionLabel:nil];
     [self setNameLabel:nil];
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
-
+// respond to the done button being pressed, will forward to our delegate
 - (IBAction)actionDone:(id)sender {
+    // we can't dismiss ourselves, so we ask our delegate to handle it for us
     [self.delegate helpViewControllerDidFinish:self];
 }
 
